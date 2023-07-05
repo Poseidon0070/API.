@@ -1,0 +1,12 @@
+<%-include("header")-%>
+<div class="container mt-4">
+    <% for (i in content) { %>
+        <h2><%=content[i].title%></h2>
+        <% if(content[i].body.length > 100){ %>
+            <p><%= content[i].body %></p>
+        <%}else{%>
+            <p><%=content[i].body%></p>
+        <%}%>
+    <%}%>
+</div>
+<%-include("footer")-%>

@@ -1,0 +1,18 @@
+<%-include("header")-%>
+<div class="container mt-4">
+    <% for (i in content) { %>
+        <% if(content[i].body.length > 100){ %>
+            <div class="content mt-5">
+                <a href="./<%=content[i].title%>" target="_blank" class="title"><h2 class="d-inline"><%=content[i].title%></h2></a><br><br>
+                <p id="post<%=i%>" class="d-inline"><span><%= content[i].body.slice(0,100)%></span><span id="span<%=i%>" class="hidden"><%=content[i].body.slice(100) %></span></p>
+                <a class="readMoreBtn" id="button<%=i%>" onClick="truncate(this.id)">....ReadMore</a>
+            </div>
+            <%}else{%>
+            <div class="content mt-5">
+                <a href="./<%=content[i].title%>" target="_blank" class="title"><h2 class="d-inline"><%=content[i].title%></h2></a><br>
+                <p id="post<%=i%>"><%=content[i].body%></p>
+            </div>
+        <%}%>
+    <%}%>
+</div>
+<%-include("footer")-%>
